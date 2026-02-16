@@ -1,0 +1,10 @@
+public/
+node_modules/
+build/
+.env
+.env.local
+.env.*.local
+*.log
+.vscode/
+.idea/
+.DS_Store
