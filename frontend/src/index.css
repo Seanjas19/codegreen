@@ -1,0 +1,49 @@
+:root {
+  /* Light Mode Colors */
+  --bg-primary: #fafafa;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f5f5f5;
+  --text-primary: #333;
+  --text-secondary: #666;
+  --text-tertiary: #999;
+  --border-color: #e0e0e0;
+  --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.15);
+  
+  /* Accent Colors */
+  --primary-green: #27ae60;
+  --dark-green: #1e8449;
+  --light-green: #2ecc71;
+  --success-green: #4CAF50;
+  --warning-orange: #ef6c00;
+  --error-red: #e74c3c;
+}
+
+html.dark-mode {
+  /* Dark Mode Colors - Professional Dark Theme */
+  --bg-primary: #0f1419;
+  --bg-secondary: #1a1f2e;
+  --bg-tertiary: #252d3d;
+  --text-primary: #e4e6eb;
+  --text-secondary: #a6acb7;
+  --text-tertiary: #6b7280;
+  --border-color: #2d3748;
+  --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+

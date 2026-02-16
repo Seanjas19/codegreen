@@ -1,0 +1,168 @@
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-primary);
+  padding: 20px;
+  color: var(--text-primary);
+}
+
+.login-container {
+  width: 100%;
+  max-width: 450px;
+}
+
+.login-card {
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  box-shadow: var(--shadow-medium);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.login-header {
+  background: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%);
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.login-icon {
+  font-size: 56px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.login-header h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.login-header p {
+  margin: 8px 0 0 0;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.login-content {
+  padding: 40px;
+  background: var(--bg-secondary);
+}
+
+.login-description {
+  text-align: center;
+  color: var(--text-secondary);
+  margin: 0 0 24px 0;
+  line-height: 1.6;
+}
+
+.google-login-btn {
+  width: 100%;
+  padding: 14px 20px;
+  background-color: var(--primary-green);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: background-color 0.3s ease;
+  margin-bottom: 16px;
+}
+
+.google-login-btn:hover:not(:disabled) {
+  background-color: var(--dark-green);
+}
+
+.google-login-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.google-icon {
+  font-size: 20px;
+}
+
+.error-message {
+  padding: 12px;
+  background-color: rgba(231, 76, 60, 0.15);
+  color: var(--error-red);
+  border-radius: 6px;
+  margin-top: 12px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.login-benefits {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 24px;
+}
+
+.login-benefits h3 {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.login-benefits ul {
+  margin: 0;
+  padding-left: 20px;
+  list-style: none;
+}
+
+.login-benefits li {
+  margin: 6px 0;
+  color: #666;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .login-card {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  }
+
+  .login-header {
+    padding: 30px 20px;
+  }
+
+  .login-header h1 {
+    font-size: 28px;
+  }
+
+  .login-content {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-header {
+    padding: 24px 16px;
+  }
+
+  .login-icon {
+    font-size: 42px;
+    margin-bottom: 12px;
+  }
+
+  .login-header h1 {
+    font-size: 24px;
+  }
+
+  .login-content {
+    padding: 20px;
+  }
+
+  .google-login-btn {
+    font-size: 14px;
+  }
+}
