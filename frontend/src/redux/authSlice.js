@@ -18,6 +18,8 @@ export const loginWithGoogle = () => async (dispatch) => {
     dispatch(setError(null));
   } catch (error) {
     dispatch(setError(error.message));
+    dispatch(setUser(null));              // ← Add this
+    dispatch(setIsAuthenticated(false));  // ← Add this
   } finally {
     dispatch(setLoading(false));
   }

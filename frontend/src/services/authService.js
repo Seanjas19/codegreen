@@ -13,22 +13,19 @@ googleProvider.setCustomParameters({ prompt: 'select_account' });
 export const authService = {
   async loginWithGoogle() {
     try {
-      if (!auth) {
-        throw new Error('Firebase not initialized. Check your .env file.');
-      }
-
       const result = await signInWithPopup(auth, googleProvider);
       const idToken = await result.user.getIdToken();
-      
-      localStorage.setItem('firebaseToken', idToken);
-      localStorage.setItem('userId', result.user.uid);
 
-      // Register user on backend
+      // Register on backend FIRST before saving anything
       await apiClient.post('/auth/register', {
         uid: result.user.uid,
         email: result.user.email,
         name: result.user.displayName || '',
       });
+
+      // Only save to localStorage if backend succeeded
+      localStorage.setItem('firebaseToken', idToken);
+      localStorage.setItem('userId', result.user.uid);
 
       return {
         uid: result.user.uid,
@@ -37,13 +34,11 @@ export const authService = {
         photoURL: result.user.photoURL,
       };
     } catch (error) {
+      // If backend fails, also sign out of Firebase to keep state clean
+      await signOut(auth);
+      localStorage.removeItem('firebaseToken');
+      localStorage.removeItem('userId');
       console.error('Login error:', error);
-      if (error.code === 'auth/configuration-not-found') {
-        console.error('Firebase configuration error. Make sure:');
-        console.error('1. .env exists with correct Firebase credentials');
-        console.error('2. Google provider is enabled in Firebase Console');
-        console.error('3. localhost:3000 is in Authorized domains in Firebase');
-      }
       throw error;
     }
   },
