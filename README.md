@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # codegreen
 An open-source web app to help optimize your code reduce carbon footprint
 =======
@@ -307,6 +307,28 @@ firestore/
 
 ---
 
+## 🚧 Challenges Faced
+
+1. **Prompt Engineering for Energy Metrics**: Calibrating the Gemini API to provide consistent energy efficiency scores (0-10). We had to iterate on system instructions to ensure the AI didn't just suggest "cleaner" code, but specifically "lower-cycle/memory-efficient" code.
+
+2. **Asynchronous State Synchronization**: Managing the transition between the frontend submission and the backend AI processing. We implemented a robust Redux loading state to handle the 5-10 second latency inherent in LLM generation without degrading the user experience.
+
+3. **Secure Multi-Platform Auth**: Bridging Firebase Google OAuth on the frontend with the firebase-admin SDK on the Node.js backend to ensure that every AI request was authenticated and mapped to the correct user.
+
+---
+
+## 🗺️ Future Roadmap
+
+1. **CI/CD Integration**: Develop a GitHub Action that automatically comments on Pull Requests with a "CodeGreen Efficiency Report" before code is merged.
+
+2. **IDE Extensions**: Create VS Code and IntelliJ plugins to provide real-time green-coding suggestions as the developer types.
+
+3. **Detailed Carbon Math**: Integrate with the Cloud Carbon Footprint API to convert energy scores into actual estimated $CO_2$ grams saved based on regional grid data.
+
+4. **Gamification**: Introduce team leaderboards and "Green Badges" for developers who consistently commit highly efficient code.
+
+---
+
 ## 🐛 Troubleshooting
 
 ### **Frontend Issues**
@@ -460,4 +482,4 @@ ISC
 **Ready to optimize your code for a greener planet? 🌱**
 
 Start the development servers and visit `http://localhost:3000` to begin!
->>>>>>> master
+
