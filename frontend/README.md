@@ -25,7 +25,7 @@ React-based frontend for the CodeGreen carbon-efficient code optimizer, built wi
      REACT_APP_FIREBASE_STORAGE_BUCKET=your_firebase_storage_bucket
      REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your_firebase_messaging_sender_id
      REACT_APP_FIREBASE_APP_ID=your_firebase_app_id
-     REACT_APP_API_URL=http://localhost:5000
+     REACT_APP_API_URL=http://localhost:5000  # override to point at deployed backend or /api rewrite
      ```
 
 3. **Start development server**
@@ -143,7 +143,7 @@ public/
 
 ## API Integration
 
-All API calls go through `/api` prefix to the backend (default: `http://localhost:5000`):
+All API calls go through `/api` prefix to the backend (default: `http://localhost:5000` when developing locally, or the same origin in production):
 
 - `POST /api/analyze` - Submit code for optimization
 - `GET /api/history` - Fetch user's analysis history

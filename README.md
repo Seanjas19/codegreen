@@ -108,7 +108,7 @@ cp .env.example .env
 
 # Start backend server
 npm run dev  # Development with hot reload
-# Server runs on http://localhost:5000
+# Server runs on http://localhost:5000 (replace with your deployed URL when hosting)
 ```
 
 ### **3. Setup Frontend (in new terminal)**
@@ -125,7 +125,7 @@ cp .env.example .env.local
 # - REACT_APP_FIREBASE_STORAGE_BUCKET
 # - REACT_APP_FIREBASE_MESSAGING_SENDER_ID
 # - REACT_APP_FIREBASE_APP_ID
-# - REACT_APP_API_URL=http://localhost:5000
+# - REACT_APP_API_URL=http://localhost:5000  (set to /api or deployed URL for production)
 
 # Start frontend dev server
 npm start
