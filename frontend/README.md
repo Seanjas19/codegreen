@@ -16,8 +16,8 @@ React-based frontend for the CodeGreen carbon-efficient code optimizer, built wi
    ```
 
 2. **Configure environment**
-   - Copy `.env.example` to `.env.local`
-   - Fill in your Firebase configuration:
+   - Copy `.env.example` to `.env.local` (this file is gitignored and **should not** be committed).
+   - Fill in your Firebase configuration values exactly as shown in the template.
      ```
      REACT_APP_FIREBASE_API_KEY=your_firebase_api_key
      REACT_APP_FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain
@@ -27,6 +27,8 @@ React-based frontend for the CodeGreen carbon-efficient code optimizer, built wi
      REACT_APP_FIREBASE_APP_ID=your_firebase_app_id
      REACT_APP_API_URL=http://localhost:5000  # override to point at deployed backend or /api rewrite
      ```
+   - **Note:** if any of these variables are missing or incorrect, Firebase initialization will throw `auth/invalid-api-key` or similar errors.
+   - For CI/builds (GitHub Actions, Netlify, Vercel, etc.) set the same values in the hosting service's environment variables or use GitHub **Secrets**. Do **not** push actual credentials to the public repo.
 
 3. **Start development server**
    ```bash
@@ -165,6 +167,8 @@ All API calls go through `/api` prefix to the backend (default: `http://localhos
 
 ## Environment Variables
 
+The frontend relies on the following variables. They are read at build time from `.env.*` files or the process environment; a missing value will break Firebase initialization.
+
 ```
 REACT_APP_FIREBASE_API_KEY      # Firebase API key
 REACT_APP_FIREBASE_AUTH_DOMAIN  # Firebase auth domain
@@ -172,8 +176,13 @@ REACT_APP_FIREBASE_PROJECT_ID   # Firebase project ID
 REACT_APP_FIREBASE_STORAGE_BUCKET # Firebase storage bucket
 REACT_APP_FIREBASE_MESSAGING_SENDER_ID # FCM sender ID
 REACT_APP_FIREBASE_APP_ID       # Firebase app ID
-REACT_APP_API_URL               # Backend API URL (default: http://localhost:5000)
+REACT_APP_API_URL               # Backend API URL (default: http://localhost:5000 or /api in production)
 ```
+
+> **Security note:**
+> - Client-side Firebase config is not secret (it’s used to identify your project) but it’s still good practice **not to commit** real values. Keep them in local `.env.*` files and ignore them via `.gitignore`.
+> - When deploying, configure these variables through your hosting provider’s settings or via GitHub **Repository Secrets**/Actions.
+
 
 ## Troubleshooting
 
